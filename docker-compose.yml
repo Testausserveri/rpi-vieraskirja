@@ -1,0 +1,15 @@
+services:
+  rpi-vieraskirja:
+    image: rpi-vieraskirja
+    build:
+      context: .
+    privileged: true
+    network_mode: host
+    volumes:
+      - type: bind
+        source: ./messages.json
+        target: /var/messages.json
+    environment:
+      - SSID=Vieraskirja
+      - INTERFACE=wlan0
+
